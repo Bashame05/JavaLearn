@@ -3,10 +3,6 @@ import java.util.*;
 public class loops{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-//     //print numbers
-//        for (int i=0;i<=10;i++){
-//            System.out.print(i + "    ");
-//        }
 //    //print numbers using while
 //    int j = 0;
 //    while(j<=10){
