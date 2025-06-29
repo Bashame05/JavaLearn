@@ -84,7 +84,7 @@ public class nQueen {
         return allBoard;
     }
     public static void main(String[] args){
-        int n=4;
+        int n=1;
         System.out.println(solveNQueens(n));
     }
 }
