@@ -1,5 +1,5 @@
 ### IntelliJ IDEA ###
-.out/
+.out/production/test
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/
