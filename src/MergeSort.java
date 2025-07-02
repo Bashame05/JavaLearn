@@ -31,7 +31,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args){
-        int[] arr = {4,6,2,9,1};
+        int[] arr = {5,6,7,2,8,5,7};
         for(int n : arr){
             System.out.print(n+" ");
         }
