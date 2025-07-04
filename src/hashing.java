@@ -13,6 +13,7 @@ public class hashing {
         hashira.put("Sanemi","Wind Hashira");
         hashira.put("Mitsuri","Love Hashira");
         hashira.put("Giyu","Water Hashira");
+        hashira.put("Obanai","Snake Hashira");
 
         //searching in a hashmap
         System.out.println(hashira.get("Shinobu"));
