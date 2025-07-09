@@ -17,6 +17,7 @@ class Pen{
     Pen(Pen trimax){
         this.color = trimax.color;
         this.type  = trimax.type;
+        this.price = trimax.price;
     }
     public void printInfo(String color){
         System.out.println(color);
@@ -41,6 +42,8 @@ public class OOP {
         trimax.color="blue";
         trimax.type="gel";
         trimax.price = 50;
+        trimax.printInfo(trimax.color);
+        trimax.printInfo(trimax.price);
         Pen reynolds = new Pen();
         reynolds.color = "black";
         reynolds.type = "ballpoint";
