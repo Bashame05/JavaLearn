@@ -1,5 +1,7 @@
 
 public class LinkedList {
+    Node head;
+    int size;
    static class Node {
         String data;
         Node next;
@@ -8,8 +10,6 @@ public class LinkedList {
             this.next = null;
         }
     }
-     Node head;
-     int size;
     LinkedList(){
         size = 0;
     }
@@ -78,6 +78,22 @@ public class LinkedList {
     public void getsize(){
         System.out.println("The size of the list is "+size);
     }
+    public void reverseIterate(){
+       if(head == null || head.next == null){
+           return;
+       }
+       Node prevNode = head;
+       Node currNode = head.next;
+       while(currNode != null){
+           Node nextNode = currNode.next;
+           currNode.next = prevNode;
+
+           prevNode = currNode;
+           currNode = nextNode;
+       }
+       head.next = null;
+       head = prevNode;
+    }
     public static void main(String[] args){
         LinkedList list = new LinkedList();
         list.addFirst("viola");
@@ -86,13 +102,17 @@ public class LinkedList {
         list.addFirst("carrot");
         list.addLast("makar");
         list.printList();
-
-        list.deleteFirst();
+        list.reverseIterate();
         list.printList();
+//
+//        list.deleteFirst();
+//        list.printList();
+//
+//        list.deleteLast();
+//        list.printList();
+//
+//        list.getsize();
 
-        list.deleteLast();
-        list.printList();
 
-        list.getsize();
     }
 }
