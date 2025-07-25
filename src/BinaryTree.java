@@ -3,6 +3,7 @@ import java.util.LinkedList;
 
 
 public class BinaryTree {
+    static int diameter = 0;
     static class Node{
         int data;
         Node leftSubTree;
@@ -68,6 +69,25 @@ public class BinaryTree {
                 }
             }
         }
+        public int countNodes(Node root){
+            if(root==null) return 0;
+            int leftNodes = countNodes(root.leftSubTree);
+            int rightNodes= countNodes(root.rightSubTree);
+            return leftNodes + rightNodes + 1;
+        }
+        public int sumOfNodes(Node root){
+            if(root==null) return 0;
+            int leftSum = sumOfNodes(root.leftSubTree);
+            int rightSum = sumOfNodes(root.rightSubTree);
+            return leftSum + rightSum + root.data;
+        }
+        public int heightOfTree(Node root){
+            if(root==null) return -1;
+            int leftHeight = heightOfTree(root.leftSubTree);
+            int rightHeight = heightOfTree(root.rightSubTree);
+            diameter = Math.max(diameter,leftHeight+rightHeight+2);
+            return Math.max(leftHeight,rightHeight)+1;
+        }
     }
     public static void main(String[] args) {
         int[] nodes = {1, 2, 3, -1, -1, 4, -1, 5, -1, -1, -1};
@@ -85,5 +105,9 @@ public class BinaryTree {
         System.out.println();
         System.out.println("Level Order Traversal");
         tree.levelOrderTraversal(root);
+        System.out.println("The total no of nodes in our tree are "+tree.countNodes(root));
+        System.out.println("The sum of the elements of the nodes in our tree is "+tree.sumOfNodes(root));
+        System.out.println("The height of our current tree is "+tree.heightOfTree(root));
+        System.out.println("The diameter of our current tree is "+diameter);
     }
 }
