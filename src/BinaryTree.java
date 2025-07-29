@@ -48,25 +48,19 @@ public class BinaryTree {
             if(root == null) return;
             Queue<Node> q = new LinkedList<>();
             q.add(root);
-            q.add(null);
             while(!q.isEmpty()){
-                Node currNode = q.remove();
-                if(currNode==null){
-                    System.out.println();
-                    if(q.isEmpty()){
-                        break;
-                    }else{
-                        q.add(null);
-                    }
-                }else{
+                int levelSize = q.size();
+                for(int i = 0; i<levelSize ; i++){
+                    Node currNode = q.remove();
                     System.out.print(currNode.data+" ");
                     if(currNode.leftSubTree != null){
                         q.add(currNode.leftSubTree);
                     }
-                    if (currNode.rightSubTree != null){
+                    if(currNode.rightSubTree != null){
                         q.add(currNode.rightSubTree);
                     }
                 }
+                System.out.println();
             }
         }
         public int countNodes(Node root){
@@ -81,11 +75,17 @@ public class BinaryTree {
             int rightSum = sumOfNodes(root.rightSubTree);
             return leftSum + rightSum + root.data;
         }
-        public int heightOfTree(Node root){
+        public int heightOfTreeByEdges(Node root){
             if(root==null) return -1;
-            int leftHeight = heightOfTree(root.leftSubTree);
-            int rightHeight = heightOfTree(root.rightSubTree);
+            int leftHeight = heightOfTreeByEdges(root.leftSubTree);
+            int rightHeight = heightOfTreeByEdges(root.rightSubTree);
             diameter = Math.max(diameter,leftHeight+rightHeight+2);
+            return Math.max(leftHeight,rightHeight)+1;
+        }
+        public int heightOfTreeByNodes(Node root){
+            if(root==null) return 0;
+            int leftHeight = heightOfTreeByNodes(root.leftSubTree);
+            int rightHeight = heightOfTreeByNodes(root.rightSubTree);
             return Math.max(leftHeight,rightHeight)+1;
         }
     }
@@ -107,7 +107,8 @@ public class BinaryTree {
         tree.levelOrderTraversal(root);
         System.out.println("The total no of nodes in our tree are "+tree.countNodes(root));
         System.out.println("The sum of the elements of the nodes in our tree is "+tree.sumOfNodes(root));
-        System.out.println("The height of our current tree is "+tree.heightOfTree(root));
+        System.out.println("The height of our current tree by edges is "+tree.heightOfTreeByEdges(root));
+        System.out.println("The height of our current tree by nodes is "+tree.heightOfTreeByNodes(root));
         System.out.println("The diameter of our current tree is "+diameter);
     }
 }
