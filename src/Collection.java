@@ -45,6 +45,7 @@ public class Collection {
         nations.add("Fontaine");
         nations.add("Natlan");
         nations.add("Nod Krai");
+        System.out.println(nations);
 
         Iterator<String> it = nations.iterator();
         while(it.hasNext()){
