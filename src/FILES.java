@@ -14,7 +14,7 @@ public class FILES {
     }
 
     private static void readFile() throws IOException{
-        Path path = Paths.get("C:\\Users\\HP\\IdeaProjects\\JavaLearn\\src\\test.txt");
+        Path path = Paths.get("src/test.txt");
         //can be used for small text files but for large ones can cause out of memory error
         List<String> lines = Files.readAllLines(path);
         lines.forEach(System.out::println);
@@ -30,7 +30,7 @@ public class FILES {
     }
 
     private static void writeFile() throws IOException{
-        Path path = Paths.get("C:\\Users\\HP\\IdeaProjects\\JavaLearn\\src\\write.txt");
+        Path path = Paths.get("src/write.txt");
         Files.writeString(path,"Falling through the atmosphere right now\n");
 
         //for writing in big files
